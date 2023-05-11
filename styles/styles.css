@@ -1,0 +1,44 @@
+/* Estilos comunes para todas las paginas */
+nav {
+    background-image: url("../media/pinkback.png");
+    border: black;
+    border-width: 1cap;
+}
+  
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+  
+nav li {
+    padding: 0 20px;
+}
+  
+nav a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+}
+  
+
+
+.title_index {
+    /* Fuentes */
+    font-size: x-large;
+    font-style: normal;
+
+    /* Background */
+    background-image: url("../media/pinkback.png");
+
+}
+body {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: medium;
+    font-weight: 300;
+    font-style: normal;
+    
+}
