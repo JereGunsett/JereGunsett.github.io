@@ -1,10 +1,15 @@
 /* Estilos comunes para todas las paginas */
-nav {
+
+header{
     background-image: url("../media/pinkback.png");
-    border: black;
-    border-width: 1cap;
 }
-  
+
+nav {
+    border-bottom: solid 1px black;
+    position: sticky;
+    top: 0%;
+}
+
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -23,22 +28,16 @@ nav a {
     font-weight: bold;
     padding: 10px;
 }
-  
-
 
 .title_index {
     /* Fuentes */
     font-size: x-large;
     font-style: normal;
-
-    /* Background */
-    background-image: url("../media/pinkback.png");
-
 }
+
 body {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: medium;
     font-weight: 300;
     font-style: normal;
-    
 }
