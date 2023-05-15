@@ -11,45 +11,60 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100&family=Wix+Madefor+Text&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><img src="" alt="Logo"></li>
-                <li><a href="prductos.html">Nuestros Productos</a></li>
-                <li><a href="galeria.html">Galeria</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li class="login"><a href="login.html">Mi Cuenta</a></li>
-            </ul>
-        </nav>
-        <div class="title_index">
-            <h1>Flora</h1>
-            <h2>Tu casa con onda</h2>
-        </div>
-    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html"><img src="../media/flora_icon-removebg-preview.png" width="40" alt="Logo"></a></li>
+            <li><a href="prductos.html">Nuestros Productos</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="login.html" class="login">Mi Cuenta</a></li>
+        </ul>
+    </nav>
+    <div class="title">
+        <img src="../media/flora_icon-removebg-preview.png" width="250" alt="title">
+    </div>
     <main>
         <section id="articulos_main">
             <h2>Productos</h2>
-            <article>
-                <h3>Producto 1</h3>
-                <p>DESCRIPCION DEL ARTICULO</p>
-            </article>
-            <article>
-                <h3>Producto 2</h3>
-                <p>DESCRIPCION DEL ARTICULO</p>
-            </article>
+            <div class="contenedor-productos">
+                <div class="contenedor-producto">
+                    <article>
+                        <img src="../media/mantel-producto.jpg" alt="Producto 1">
+                        <div class="texto-superficial">
+                            <h3>Producto 1</h3>
+                            <p>DESCRIPCION DEL ARTICULO</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="contenedor-producto">
+                    <article>
+                        <img src="../media/mantel3.webp" alt="Producto 2">
+                        <div class="texto-superficial">
+                            <h3>Producto 2</h3>
+                            <p>DESCRIPCION DEL ARTICULO</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </section>
-        <section id="novedades_main">
+        <section class="novedades-main">
             <h2>Noticias</h2>
-            <article>
-                <h3>Titulo de la noticia</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi tenetur, odio quo dignissimos libero perspiciatis et assumenda quam, doloribus fugiat sint eligendi debitis pariatur iusto quae est dolorem modi dolorum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At rerum corrupti mollitia? Temporibus similique maxime culpa soluta! Et vitae libero placeat iste fuga, explicabo, laboriosam molestias, ipsam minus eius ea.</p>
-            </article>
-            <article>
-                <h3>Titulo de la noticia</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla expedita ex voluptate autem nam molestias, vel, veritatis, atque odit quasi assumenda quis doloribus. Pariatur delectus repellat quisquam quod eum consequatur.</p>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam similique molestias, perferendis fugit suscipit repellat voluptatibus necessitatibus nulla. Dolor vero enim voluptatibus in eius corrupti excepturi aspernatur, voluptas odio dicta?</p>
-            </article>
+            <div class="card-novedades">
+                <div class="card">
+                    <article>
+                        <h3>Titulo de la noticia</h3>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi tenetur, odio quo dignissimos libero perspiciatis et assumenda quam, doloribus fugiat sint eligendi debitis pariatur iusto quae est dolorem modi dolorum.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At rerum corrupti mollitia? Temporibus similique maxime culpa soluta! Et vitae libero placeat iste fuga, explicabo, laboriosam molestias, ipsam minus eius ea.</p>
+                    </article>
+                </div>
+                <div class="card">
+                    <article>
+                        <h3>Titulo de la noticia</h3>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi tenetur, odio quo dignissimos libero perspiciatis et assumenda quam, doloribus fugiat sint eligendi debitis pariatur iusto quae est dolorem modi dolorum.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At rerum corrupti mollitia? Temporibus similique maxime culpa soluta! Et vitae libero placeat iste fuga, explicabo, laboriosam molestias, ipsam minus eius ea.</p>
+                    </article>
+                </div>
+            </div>
         </section>
     </main>
 </body>

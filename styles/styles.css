@@ -1,13 +1,9 @@
-/* Estilos comunes para todas las paginas */
-
-header{
-    background-image: url("../media/pinkback.png");
-}
-
+/* NAV */
 nav {
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px gray;
     position: sticky;
     top: 0%;
+    background-image: url(../media/pinkback.png);
 }
 
 nav ul {
@@ -15,6 +11,8 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
+    font-size: 20px;
+    align-items: center;
 }
   
 nav li {
@@ -28,11 +26,10 @@ nav a {
     font-weight: bold;
     padding: 10px;
 }
-
-.title_index {
-    /* Fuentes */
-    font-size: x-large;
-    font-style: normal;
+/* TITULO */
+.title{
+    text-align: center;
+    padding-top: 45px;
 }
 
 body {
@@ -40,4 +37,69 @@ body {
     font-size: medium;
     font-weight: 300;
     font-style: normal;
+    height: 3000;
+    overflow: auto;
+    margin: auto;
 }
+.articulos_main {
+    text-align: center;   
+}
+
+h1, h2 {
+    text-align: center;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.card-novedades {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5%;
+}
+
+  .card {
+    width: calc(50% - 10px);
+    background-color: #F0E2E2;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+  }
+
+  .contenedor-productos {
+    position: relative;
+    width: 90%;
+    height: 200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .contenedor-productos img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .contenedor-producto article {
+    display: flex;
+    align-items: center;
+  }
+  
+  .contenedor-producto{
+    flex: 1 1 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .texto-superficial {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+  }
