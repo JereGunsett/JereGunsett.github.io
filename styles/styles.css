@@ -1,12 +1,15 @@
 /* NAV */
-nav {
+.nav-container {
     border-bottom: solid 1px gray;
     position: sticky;
     top: 0%;
     background-image: url(../media/pinkback.png);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-nav ul {
+.nav-container ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -15,21 +18,40 @@ nav ul {
     align-items: center;
 }
   
-nav li {
+.nav-container li {
     padding: 0 20px;
 }
   
-nav a {
+.nav-container a {
     display: block;
     color: #000;
     text-decoration: none;
     font-weight: bold;
     padding: 10px;
 }
+
+.nav-login {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-login li {
+  display: inline-block;
+}
+
+.nav-login li a {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: bold;
+}
+
 /* TITULO */
 .title{
     text-align: center;
-    padding-top: 45px;
+    
 }
 
 body {
@@ -47,8 +69,8 @@ body {
 
 h1, h2 {
     text-align: center;
-    margin-top: 40px;
-    margin-left: 40px;
+    margin: 20px;
+    padding: 30px;
 }
 
 .card-novedades {
@@ -58,48 +80,86 @@ h1, h2 {
     padding: 5%;
 }
 
-  .card {
-    width: calc(50% - 10px);
-    background-color: #F0E2E2;
-    padding: 10px;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-  }
+.card {
+  width: calc(50% - 10px);
+  background-color: #F0E2E2;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
 
-  .contenedor-productos {
-    position: relative;
-    width: 90%;
-    height: 200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
+.contenedor-productos {
+  position: relative;
+  width: 90%;
+  height: 200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
-  .contenedor-productos img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
+.contenedor-productos img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
 
-  .contenedor-producto article {
-    display: flex;
-    align-items: center;
-  }
+.contenedor-producto article {
+  display: flex;
+  align-items: center;
+}
   
-  .contenedor-producto{
-    flex: 1 1 45%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
+.contenedor-producto{
+  flex: 1 1 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
 
-  .texto-superficial {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 10px;
-    border-radius: 5px;
-  }
+.texto-superficial {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.fromulario {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 55px;
+  background-color: #f8f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fromulario label {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.fromulario input,
+.fromulario textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.fromulario button {
+  background-color: #bda1a1;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.fromulario button[type="reset"] {
+  background-color: #cecece;
+}

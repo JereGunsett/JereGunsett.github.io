@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,15 +11,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100&family=Wix+Madefor+Text&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html"><img src="../media/flora_icon-removebg-preview.png" width="40" alt="Logo"></a></li>
-            <li><a href="prductos.html">Nuestros Productos</a></li>
-            <li><a href="galeria.html">Galeria</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="login.html" class="login">Mi Cuenta</a></li>
-        </ul>
-    </nav>
+    <div class="nav-container">
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="index.html"><img src="../media/flora_icon-removebg-preview.png" width="40" alt="Logo"></a></li>
+                <li><a href="prductos.html">Nuestros Productos</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <nav class="nav-login">
+            <ul>
+                <li><a href="login.html" class="mi-cuenta">Mi Cuenta</a></li>
+            </ul>
+        </nav>
+    </div>
     <div class="title">
         <img src="../media/flora_icon-removebg-preview.png" width="250" alt="title">
     </div>
@@ -67,5 +73,6 @@
             </div>
         </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
