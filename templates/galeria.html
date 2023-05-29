@@ -5,38 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Galeria</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100&family=Wix+Madefor+Text&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="Logo">
-            <img src="" alt="Logo">
-        </div>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="prductos.html">Nuestros Productos</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="login.html">Mi Cuenta</a></li>
-        </ul>
-        <div class="title">
-            <h1>Nuestra Galeria</h1>
-        </div>
-    </header>
+    <div class="nav-container">
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="index.html"><img src="../media/flora_icon-removebg-preview.png" width="40" alt="Logo"></a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="prductos.html">Nuestros Productos</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <nav class="nav-login">
+            <ul>
+                <li><a href="login.html" class="mi-cuenta">Mi Cuenta</a></li>
+            </ul>
+        </nav>
+    </div>
     <main>
-        <div class="gallery">
-            <img src="" alt="img 1">
-            <img src="" alt="img 2">
-            <img src="" alt="img 3">
-            <img src="" alt="img 4">
-            <img src="" alt="img 5">
-            <img src="" alt="img 6">
-            <img src="" alt="img 7">
-            <img src="" alt="img 8">
-            <img src="" alt="img 9">
-            <img src="" alt="img 10">
+        <div class="container-gallery">
+            <div class="gallery">
+                <img src="../media/gallery/1.jpg" alt="img 1">
+                <img src="../media/gallery/3.jpg" alt="img 3">
+                <img src="../media/gallery/2.jpg" alt="img 2">
+                
+                <img src="../media/gallery/4.jpg" alt="img 4">
+                <img src="../media/gallery/5.jpg" alt="img 5">
+                <div class="video-container">
+                    <video width="640" height="360" autoplay="true" loop="true">
+                        <source src="../media/gallery/video1.mp4">
+                        Tu navegador no admite el elemento de video.
+                    </video>
+                </div>
+                <img src="../media/gallery/6.jpg" alt="img 7">
+                <img src="../media/gallery/7.jpg" alt="img 8">
+                <div class="video-container">
+                    <video width="840" height="560" autoplay="true" loop="true">
+                        <source src="../media/gallery/video2.mp4">
+                        Tu navegador no admite el elemento de video.
+                    </video>
+                </div>
+                <img src="../media/gallery/8.jpg" alt="img 10">
+            </div>
         </div>
     </main>
 </body>

@@ -51,6 +51,7 @@
 /* TITULO */
 .title{
     text-align: center;
+    padding: 70px;
     
 }
 
@@ -89,7 +90,6 @@ h1, h2 {
   margin-bottom: 20px;
   box-sizing: border-box;
 }
-
 
 /* Productos Index */
 
@@ -163,7 +163,6 @@ h1, h2 {
   text-align: center;
   background-color: #fae6e6;
   position: static;
-  
 }
 
 .contenedor-shop ul {
@@ -186,4 +185,64 @@ padding: 40px 20px;
 .producto-shop img {
   width: 90%;
   height: auto;
+}
+
+/* GALERIA */
+
+.container-gallery {
+  max-width: 80%;
+  min-width: none;
+  display: flex;
+  justify-content: baseline;
+  text-align: center;
+}
+
+.gallery{
+  padding: 60px 20px 20px 20px;
+  display: flexbox;
+}
+
+.gallery img {
+  max-width: 400px;
+  min-width: 100px;
+  padding: 5px;
+}
+
+.video-container {
+  position:relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Relación de aspecto 16:9 (dividir 9 entre 16 y multiplicar por 100) */
+}
+.video-container video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit:contain;
+}
+
+/* LOGIN */
+.main-login {
+  align-items: center;
+  text-align: center;
+}
+
+.container-login {
+  width: 30%;
+  height: 30%;
+  padding: 70px;
+  margin: 100px auto;
+  border: solid 1px #DBC5C8;
+  background-color: #FAE4E1;
+  display: flexbox;
+}
+
+.email-login {
+  padding: 10px;
+}
+.password-login {
+  padding: 10px;
+}
+
+.button-login {
+  background-color: #DAC5DB;
 }
