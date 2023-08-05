@@ -51,7 +51,7 @@
 /* TITULO */
 .title{
     text-align: center;
-    padding: 70px;
+    padding: 50px;
     
 }
 
@@ -63,7 +63,14 @@ body {
     height: 3000;
     overflow: auto;
     margin: auto;
+    background: rgb(255,220,255);
+    background: linear-gradient(90deg, rgba(255,220,255,1) 0%, rgba(255,195,206,1) 50%, rgba(255,243,208,1) 100%);
 }
+
+/* main {
+  padding: 40px;
+} */
+
 .articulos_main {
     text-align: center;   
 }
@@ -245,4 +252,14 @@ padding: 40px 20px;
 
 .button-login {
   background-color: #DAC5DB;
+}
+
+.noticia{
+  padding: 30px;
+  align-items: baseline;
+  align-content: center;
+}
+
+.noticia-titulo{
+  font-weight: bold;
 }
