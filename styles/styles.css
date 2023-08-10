@@ -67,9 +67,9 @@ body {
     background: linear-gradient(90deg, rgba(255,220,255,1) 0%, rgba(255,195,206,1) 50%, rgba(255,243,208,1) 100%);
 }
 
-/* main {
+main {
   padding: 40px;
-} */
+}
 
 .articulos_main {
     text-align: center;   
@@ -93,7 +93,7 @@ h1, h2 {
 .card {
   width: calc(50% - 10px);
   background-color: #F0E2E2;
-  padding: 10px;
+  padding: 15px;
   margin-bottom: 20px;
   box-sizing: border-box;
 }
@@ -218,7 +218,7 @@ padding: 40px 20px;
 .video-container {
   position:relative;
   width: 100%;
-  padding-bottom: 56.25%; /* Relación de aspecto 16:9 (dividir 9 entre 16 y multiplicar por 100) */
+  padding-bottom: 56.25%;
 }
 .video-container video {
   position: absolute;
@@ -262,4 +262,94 @@ padding: 40px 20px;
 
 .noticia-titulo{
   font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .nav-container ul {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .nav-container li {
+    padding: 10px;
+  }
+
+  .nav-login {
+    display: none;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+  }
+
+  #menu-toggle:checked ~ .nav-menu {
+    display: flex;
+  }
+
+  .nav-menu li {
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .title {
+    padding: 20px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .contenedor-productos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .producto img {
+    width: 100%;
+    height: auto;
+  }
+
+  .fromulario {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .container-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery img {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .video-container {
+    padding-bottom: 56.25%;
+  }
+
+  .video-container video {
+    width: 100%;
+    height: 100%;
+  }
+
+  .container-login {
+    width: 80%;
+    padding: 20px;
+  }
 }
