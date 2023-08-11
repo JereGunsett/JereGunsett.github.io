@@ -1,64 +1,7 @@
-/* NAV */
-.nav-container {
-    border-bottom: solid 1px gray;
-    position: sticky;
-    top: 0%;
-    background-image: url(../media/pinkback.png);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-container ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    font-size: 20px;
-    align-items: center;
-}
-  
-.nav-container li {
-    padding: 0 20px;
-}
-  
-.nav-container a {
-    display: block;
-    color: #000;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-}
-
-.nav-login {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-login li {
-  display: inline-block;
-}
-
-.nav-login li a {
-  display: block;
-  color: #000;
-  text-decoration: none;
-  padding: 10px;
-  font-weight: bold;
-}
-
-/* TITULO */
-.title{
-    text-align: center;
-    padding: 50px;
-    
-}
-
 body {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: medium;
-    font-weight: 300;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-size: large;
+    font-weight: bold !important;
     font-style: normal;
     height: 3000;
     overflow: auto;
@@ -67,56 +10,44 @@ body {
     background: linear-gradient(90deg, rgba(255,220,255,1) 0%, rgba(255,195,206,1) 50%, rgba(255,243,208,1) 100%);
 }
 
-main {
-  padding: 40px;
+/* NAV BAR */
+.navbar-brand{
+  font-size: 60px !important;
+  font-weight: lighter !important;
+  padding-right: 0px;
+  padding-left: 20px;
 }
 
-.articulos_main {
-    text-align: center;   
+.nav-item{
+  font-size: 20px !important;
+  padding: 15px;
+  font-weight:bolder;
 }
 
+.navbar-nav.ml-auto {
+  margin-left: auto; /* Ajusta el margen izquierdo según lo necesario */
+  padding-right: 20px;
+  font-size: 20px !important;
+  padding: 20px;
+}
+
+/* TITULOS */
 h1, h2 {
     text-align: center;
     margin-top: 20px;
     padding: 30px;
+    font-weight:bold;
 }
-
-
-/* Noticias */
-.card-novedades {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-bottom: 10px;
-}
-
-.card {
-  width: calc(50% - 10px);
-  background-color: #F0E2E2;
-  padding: 15px;
-  margin-bottom: 20px;
-  box-sizing: border-box;
-}
-
-/* Productos Index */
-
-.contenedor-productos {
+#galeria img{
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-align: center;
-  flex-wrap: nowrap;
+  height: 250px;
 }
-.producto {
-  width: 50%;
-  height: 50%;
-  padding: 15px;
+#galeria .col-lg-4{
+  padding: 20px;
+  margin: 0 !important;
 }
-.producto img {
-  width: 600px;
-  height: 400px;
-  object-fit: cover;
+#galeria img:hover{
+  border: 5px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Contacto */
@@ -194,39 +125,6 @@ padding: 40px 20px;
   height: auto;
 }
 
-/* GALERIA */
-
-.container-gallery {
-  max-width: 80%;
-  min-width: none;
-  display: flex;
-  justify-content: baseline;
-  text-align: center;
-}
-
-.gallery{
-  padding: 60px 20px 20px 20px;
-  display: flexbox;
-}
-
-.gallery img {
-  max-width: 400px;
-  min-width: 100px;
-  padding: 5px;
-}
-
-.video-container {
-  position:relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-}
-.video-container video {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit:contain;
-}
-
 /* LOGIN */
 .main-login {
   align-items: center;
@@ -266,45 +164,8 @@ padding: 40px 20px;
 
 
 @media screen and (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-  }
-
-  .nav-container ul {
-    flex-direction: column;
-    text-align: center;
-    margin-top: 10px;
-  }
-
-  .nav-container li {
-    padding: 10px;
-  }
-
-  .nav-login {
-    display: none;
-  }
-
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1;
-  }
-
   #menu-toggle:checked ~ .nav-menu {
     display: flex;
-  }
-
-  .nav-menu li {
-    width: 100%;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
   }
 
   .title {
@@ -357,5 +218,4 @@ padding: 40px 20px;
     width: 30px;
     height: 30px;
   }
-
 }
