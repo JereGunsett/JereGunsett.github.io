@@ -1,43 +1,96 @@
 body {
-    font-family: 'Barlow Condensed', sans-serif !important;
-    font-size: large;
-    font-weight: bold !important;
-    font-style: normal;
-    height: 3000;
-    overflow: auto;
-    margin: auto;
-    background: rgb(255,220,255);
-    background: linear-gradient(90deg, rgba(255,220,255,1) 0%, rgba(255,195,206,1) 50%, rgba(255,243,208,1) 100%);
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: large;
+  font-weight: bold !important;
+  font-style: normal;
+  overflow: auto;
+  background-color: #FFF2F2!important;
+}
+
+main{
+  margin: 80px !important;
+}
+
+footer{
+  background-color: #FFFFFF;
+}
+
+
+
+.card-body {
+  background-color: #FCF9EE;
+}
+
+/* BARRAS LATERALES */
+.sidebar {
+  width: 50px;
+  background-color: #FFFFFF;
+  color: white;
+  padding: 30px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.sidebar-left {
+  left: 0;
+  background-color: #FFFFFF;
+}
+
+.sidebar-right {
+  right: 0;
+  background-color: #FFFFFF;
 }
 
 /* NAV BAR */
+.navbar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #FFFFFF;
+}
+
 .navbar-brand{
   font-size: 60px !important;
   font-weight: lighter !important;
-  padding-right: 0px;
-  padding-left: 20px;
+  padding-right: 30px;
+  padding-left: 45px;
 }
 
 .nav-item{
   font-size: 20px !important;
-  padding: 15px;
+  padding: 20px;
   font-weight:bolder;
 }
 
 .navbar-nav.ml-auto {
-  margin-left: auto; /* Ajusta el margen izquierdo según lo necesario */
+  margin-left: auto;
   padding-right: 20px;
   font-size: 20px !important;
   padding: 20px;
 }
 
+.navbar .navbar-toggler-icon{
+  color: red !important;
+}
+
 /* TITULOS */
+.h1{
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 70px;
+  font-weight: bold;
+}
 h1, h2 {
     text-align: center;
     margin-top: 20px;
     padding: 30px;
     font-weight:bold;
 }
+
 #galeria img{
   width: 100%;
   height: 250px;
@@ -51,11 +104,13 @@ h1, h2 {
 }
 
 /* Contacto */
+.titulo-contacto{
+  padding-top: 50px;
+}
 .fromulario {
   max-width: 400px;
   margin: 0 auto;
-  padding: 55px;
-  background-color: #f8f0f0;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -136,8 +191,6 @@ padding: 40px 20px;
   height: 30%;
   padding: 70px;
   margin: 100px auto;
-  border: solid 1px #DBC5C8;
-  background-color: #FAE4E1;
   display: flexbox;
 }
 
@@ -217,5 +270,12 @@ padding: 40px 20px;
   .iframes {
     width: 30px;
     height: 30px;
+  }
+  .sidebar{
+    display: none;
+    padding: 0;
+  }
+  main{
+    margin: 0;
   }
 }
