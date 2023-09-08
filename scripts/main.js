@@ -107,7 +107,7 @@ function renderizacionDetalleProducto (producto){
     displayImg.setAttribute('src', '../icons/bt_add_to_cart.svg');
     displayImg.setAttribute('alt', 'agregar al carrito');
     displayBotonCarrito.appendChild(displayImg);
-    displayBotonCarrito.appendChild(document.createTextNode('Add to cart'));
+    displayBotonCarrito.appendChild(document.createTextNode('Agregar al carrito'));
   
     // Agregar el botón como hijo del detalleProducto
     detalleProducto.appendChild(displayBotonCarrito);
