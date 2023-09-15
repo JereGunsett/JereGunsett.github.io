@@ -1,66 +1,89 @@
+
 const contenedorProductoEcommerce = document.querySelector('.contenedor-ecommerce');
 const detalleProducto = document.querySelector('#detalle-producto');
 const iconoCierreDetalleProducto = document.querySelector('.producto-detalle-cierre');
 
-// detalleProducto.addEventListener('click', abrirDetalleProducto);
+
 iconoCierreDetalleProducto.addEventListener('click', cerrarDetalleProducto);
 
+// Abrir el detalle del producto al hacer click en la imagen de este
 function abrirDetalleProducto(producto) {
     renderizacionDetalleProducto(producto);
     detalleProducto.classList.remove('inactive');
 }
+
+// Cerrar el detalle del producto al hacer click en .producto-detalle-cierre
 function cerrarDetalleProducto(){
     detalleProducto.classList.add('inactive');
 }
 
-let productoList = [];
+const productoList = [];
 
-productoList.push({
-    nombre: 'Producto de ejemplo',
-    precio: 2200,
-    imagen: '../media/shop/podio.avif',
-    descripcion: 'Este es un producto de ejemplo para agregar en el detalle'
+const categoriaEjemplo = new Categoria({
+    id: 1,
+    nombre: 'Categoria de Ejemplo',
+    descripcion: 'Esta es una categoria usada para el testeo'
 });
-productoList.push({
-    nombre: 'Producto de ejemplo',
-    precio: 2200,
-    imagen: '../media/shop/podio.avif',
-    descripcion: 'Este es un producto de ejemplo para agregar en el detalle'
-});
-productoList.push({
-    nombre: 'Producto de ejemplo',
-    precio: 2200,
-    imagen: '../media/shop/podio.avif',
-    descripcion: 'Este es un producto de ejemplo para agregar en el detalle'
-});
-productoList.push({
-    nombre: 'Producto de ejemplo',
-    precio: 2200,
-    imagen: '../media/shop/podio.avif',
-    descripcion: 'Este es un producto de ejemplo para agregar en el detalle'
-});
-productoList.push({
-    nombre: 'Producto de ejemplo',
-    precio: 2200,
-    imagen: '../media/shop/podio.avif',
-    descripcion: 'Este es un producto de ejemplo para agregar en el detalle'
-});
-productoList.push({
-    nombre: 'Producto de ejemplo',
-    precio: 2200,
-    imagen: '../media/shop/podio.avif',
-    descripcion: 'Este es un producto de ejemplo para agregar en el detalle'
-});
-productoList.push({
-    nombre: 'Producto de ejemplo',
-    precio: 2200,
-    imagen: '../media/shop/podio.avif',
-    descripcion: 'Este es un producto de ejemplo para agregar en el detalle'
+const categoriaEjemplo2 = new Categoria({
+    id: 2,
+    nombre: 'Categoria de Ejemplo 2',
+    descripcion: 'Esta es una categoria usada para el testeo'
 });
 
+const productoEjemplo = new Producto({
+    id: 1,
+    nombre: "Producto de Ejemplo 1",
+    precio: 5000,
+    imagen: "../media/shop/podio.avif",
+    descripcion: "Este es un producto de ejemplo",
+    categoria: categoriaEjemplo2
+});
+const productoEjemplo1 = new Producto({
+    id: 1,
+    nombre: "Producto de Ejemplo 2",
+    precio: 3000,
+    imagen: "../media/shop/podio.avif",
+    descripcion: "Este es un producto de ejemplo",
+    categoria: categoriaEjemplo2
+});
+const productoEjemplo2 = new Producto({
+    id: 1,
+    nombre: "Producto de Ejemplo 3",
+    precio: 2500,
+    imagen: "../media/shop/podio.avif",
+    descripcion: "Este es un producto de ejemplo",
+    categoria: categoriaEjemplo
+});
+const productoEjemplo3 = new Producto({
+    id: 1,
+    nombre: "Producto de Ejemplo 4",
+    precio: 5000,
+    imagen: "../media/shop/podio.avif",
+    descripcion: "Este es un producto de ejemplo",
+    categoria: categoriaEjemplo
+});
+const productoEjemplo4 = new Producto({
+    id: 1,
+    nombre: "Producto de Ejemplo 5",
+    precio: 8000,
+    imagen: "../media/shop/podio.avif",
+    descripcion: "Este es un producto de ejemplo",
+    categoria: categoriaEjemplo
+});
+const productoEjemplo5 = new Producto({
+    id: 1,
+    nombre: "Producto de Ejemplo 5",
+    precio: 8000,
+    imagen: "../media/shop/podio.avif",
+    descripcion: "Este es un producto de ejemplo",
+    categoria: categoriaEjemplo
+});
+
+productoList.push(productoEjemplo1,productoEjemplo2,productoEjemplo3,productoEjemplo4,productoEjemplo5,productoEjemplo);
+
+//Renderizado del detalle de cada prodcuto
 function renderizacionDetalleProducto (producto){
-
-     // Limpiar el DetalleProducto eliminando todos los elementos hijos
+    // Limpiar el DetalleProducto eliminando todos los elementos hijos
     while (detalleProducto.firstChild) {
         detalleProducto.removeChild(detalleProducto.firstChild);
     }
@@ -79,7 +102,7 @@ function renderizacionDetalleProducto (producto){
 
     //Imagen del producto
     const displayProductoImg = document.createElement('img');
-    displayProductoImg.setAttribute('src', producto.imagen);
+    displayProductoImg.setAttribute('src', producto.imagen);//Imagen del producto
 
     //Agregamos la imagen como hijo del productDetail
     detalleProducto.appendChild(displayProductoImg);
@@ -113,10 +136,10 @@ function renderizacionDetalleProducto (producto){
     detalleProducto.appendChild(displayBotonCarrito);
 }
 
-//Funcion que renderiza los productos del ecommerce
+//Renderizado de los productos del Ecommerce
 function renderizacionProductosEcommerce (arr){
     let count = 0;
-    for (producto of productoList) {
+    for (const producto of productoList) {
         
         const productoCard = document.createElement('div');
         productoCard.classList.add('producto-card');
@@ -127,8 +150,8 @@ function renderizacionProductosEcommerce (arr){
         productoImg.addEventListener('click', function() {
             const alt = productoImg.getAttribute('alt');
             const producto = productoList[alt];
-            abrirDetalleProducto(producto); // Pasa el producto correcto a la función
-          });
+            abrirDetalleProducto(producto);
+        });
     
         const productoInfo = document.createElement('div');
         productoInfo.classList.add('producto-info');
