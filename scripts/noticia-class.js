@@ -1,8 +1,10 @@
 class Noticia{
-    constructor(id, titulo, text, imagen){
-        this.id = id;
-        this.titulo = titulo;
-        this.text = text;
-        this.imagen = imagen;
+    constructor(noticia){
+        this.id = noticia.id;
+        this.titulo = noticia.titulo;
+        this.texto = noticia.texto;
+        this.imagen = noticia.imagen;
+        this.mapa = noticia.mapa;
+        this.posteoInstagram = noticia.posteoInstagram;
     }
 }

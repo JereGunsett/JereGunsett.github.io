@@ -327,14 +327,59 @@ aside {
 }
 
 /* NOTICIAS */
-.noticia{
-  padding: 30px;
-  align-items: baseline;
-  align-content: center;
+
+.noticia {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  align-items: center;
 }
 
-.noticia-titulo{
-  font-weight: bold;
+/* Estilos para los títulos de las noticias */
+.noticia h2 {
+  font-size: 40px;
+  margin-top: 0;
+  color: #333;
+}
+
+/* Estilos para los párrafos de las noticias */
+.noticia p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 10px 0;
+  color: #666;
+  padding-bottom: 30px;
+}
+
+/* Estilos para las imágenes de las noticias */
+.noticia img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px 0;
+}
+
+/* Estilos para las publicaciones de Instagram */
+.noticia .instagram {
+  margin: 10px 0;
+}
+
+/* Estilos para los mapas de Google */
+.noticia .mapa {
+  margin: 10px 0;
+  right: auto;
+}
+
+/* Estilos para hacer que los mapas y las publicaciones de Instagram sean responsivos */
+.noticia iframe {
+  max-width: 100%;
+  display: block;
+  margin: auto;
+  width: 500px;
+  height: 300px;
 }
 
 
