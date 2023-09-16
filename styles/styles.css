@@ -446,7 +446,7 @@ aside {
     padding: 0;
   }
   main{
-    margin: 0;
+    margin: 0 !important;
   }
   .aside {
     width: 100%;
@@ -470,5 +470,12 @@ aside {
   .filtro-button{
     left: 15px;
     top: 180px;
+  }
+  .noticias-container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .noticia {
+    width: 100%;
   }
 }
