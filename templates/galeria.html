@@ -53,122 +53,18 @@
   </div>
     <main>
         <section id="galeria" class="container">
-            <div class="text-center pt-5">
+            <div class="text-center">
                 <h1>Galeria</h1>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit maiores dolores officiis doloribus neque assumenda debitis et, facere ea exercitationem porro, explicabo laborum ab inventore? Facere neque dolorem est laudantium?</p>
             </div>
             <div class="row">
-                <div class="col-lg-4">
-                    <img src="../media/gallery/1.jpg"  data-bs-toggle="modal" data-bs-target="#imageModal1" class="gallery-image" alt="Imagen Galeria">
-                </div>
-                <div class="col-lg-4">
-                    <img src="../media/gallery/2.jpg"  data-bs-toggle="modal" data-bs-target="#imageModal2" class="gallery-image" alt="Imagen Galeria">
-                </div>
-                <div class="col-lg-4">
-                    <img src="../media/gallery/3.jpg"  data-bs-toggle="modal" data-bs-target="#imageModal3" class="gallery-image" alt="Imagen Galeria">
-                </div>
-                <div class="col-lg-4">
-                    <img src="../media/gallery/4.jpg"  data-bs-toggle="modal" data-bs-target="#imageModal4" class="gallery-image" alt="Imagen Galeria">
-                </div>
-                <div class="col-lg-4">
-                    <img src="../media/gallery/5.jpg" data-bs-toggle="modal" data-bs-target="#imageModal5" class="gallery-image" alt="Imagen Galeria">
-                </div>
-                <div class="col-lg-4">
-                    <img src="../media/gallery/6.jpg"  data-bs-toggle="modal" data-bs-target="#imageModal6" class="gallery-image" alt="Imagen Galeria">
-                </div>
-                <div class="col-lg-4">
-                    <img src="../media/gallery/7.jpg"  data-bs-toggle="modal" data-bs-target="#imageModal7" class="gallery-image" alt="Imagen Galeria">
-                </div>
-                <div class="col-lg-4">
-                    <img src="../media/gallery/8.jpg"  data-bs-toggle="modal" data-bs-target="#imageModal8" class="gallery-image" alt="Imagen Galeria">
-                </div>
-                <div class="col-lg-4">
-                    <img src="../media/gallery/1.jpg"  data-bs-toggle="modal" data-bs-target="#imageModal9" class="gallery-image" alt="Imagen Galeria">
-                </div>
+              <!-- Renderizado de imagenes en galeria.js -->
             </div>
         </section>
-        <section id="modal-galeria">
-            <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModal1Label" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <img src="../media/gallery/1.jpg" class="img-fluid" alt="Imagen 1">
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModal2Label" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <img src="../media/gallery/2.jpg" class="img-fluid" alt="Imagen 2">
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModal3Label" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <img src="../media/gallery/3.jpg" class="img-fluid" alt="Imagen 3">
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div class="modal fade" id="imageModal4" tabindex="-1" aria-labelledby="imageModal4Label" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <img src="../media/gallery/4.jpg" class="img-fluid" alt="Imagen 4">
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div class="modal fade" id="imageModal5" tabindex="-1" aria-labelledby="imageModal5Label" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <img src="../media/gallery/5.jpg" class="img-fluid" alt="Imagen 4">
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div class="modal fade" id="imageModal6" tabindex="-1" aria-labelledby="imageModal6Label" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <img src="../media/gallery/6.jpg" class="img-fluid" alt="Imagen 6">
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div class="modal fade" id="imageModal7" tabindex="-1" aria-labelledby="imageModal7Label" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <img src="../media/gallery/7.jpg" class="img-fluid" alt="Imagen 7">
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div class="modal fade" id="imageModal8" tabindex="-1" aria-labelledby="imageModal8Label" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <img src="../media/gallery/8.jpg" class="img-fluid" alt="Imagen 8">
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div class="modal fade" id="imageModal9" tabindex="-1" aria-labelledby="imageModal9Label" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <img src="../media/gallery/1.jpg" class="img-fluid" alt="Imagen 9">
-                    </div>
-                  </div>
-                </div>
-            </div>
+        <section id="modal">
+          <div class="modal-galeria">
+            <!-- Renderizado de modal en galeria.js -->
+          </div>
         </section>
     </main>
     <footer class="text-danger">
@@ -193,5 +89,7 @@
           </div>
       </div>
     </footer>
+    <script src="../scripts/imagenes-class.js"></script>
+    <script src="../scripts/galeria.js"></script>
 </body>
 </html>
