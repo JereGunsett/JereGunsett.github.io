@@ -2,9 +2,15 @@
 const contenedorProductoEcommerce = document.querySelector('.contenedor-ecommerce');
 const detalleProducto = document.querySelector('#detalle-producto');
 const iconoCierreDetalleProducto = document.querySelector('.producto-detalle-cierre');
+const iconoFiltroDeProductos = document.querySelector('.filtro-button');
+const filtroModal = document.querySelector('.filtro-modal');
+const botonDeCierreFiltro = document.querySelector('.close-button');
 
 
 iconoCierreDetalleProducto.addEventListener('click', cerrarDetalleProducto);
+
+iconoFiltroDeProductos.addEventListener('click', abrirFiltroDeProductos);
+botonDeCierreFiltro.addEventListener('click', cerrarFiltroDeProductos);
 
 // Abrir el detalle del producto al hacer click en la imagen de este
 function abrirDetalleProducto(producto) {
@@ -14,7 +20,17 @@ function abrirDetalleProducto(producto) {
 
 // Cerrar el detalle del producto al hacer click en .producto-detalle-cierre
 function cerrarDetalleProducto(){
+
     detalleProducto.classList.add('inactive');
+}
+
+function abrirFiltroDeProductos(){
+    filtroModal.classList.remove('inactive');
+    iconoFiltroDeProductos.classList.add('inactive');
+}
+function cerrarFiltroDeProductos(){
+    filtroModal.classList.add('inactive');
+    iconoFiltroDeProductos.classList.remove('inactive');
 }
 
 const productoList = [];

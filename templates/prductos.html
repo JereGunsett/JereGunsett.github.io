@@ -41,7 +41,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-login">
                             <a class="nav-link " href="templates/login.html">
-                                <img class="login-icon" src="icons/account_circle.svg" alt="login">
+                                <img class="login-icon" src="../icons/account_circle.svg" alt="login">
                             </a>
                         </li>
                     </ul>
@@ -64,6 +64,27 @@
                   <img src="../icons/icon_close.png" alt="close">
                 </div>
             </aside>
+        </div>
+        <div id="filtro-modal" class="filtro-modal  inactive">
+            <div class="modal-content">
+                <button class="close-button">
+                    <span>&times;</span>
+                </button>
+                <h2>Filtrar Productos</h2>
+                <label for="productName">Nombre del Producto:</label>
+                <input type="text" id="productName" name="productName">
+                <br><br>
+                <label for="category">Categoría:</label>
+                <select id="category" name="category">
+                    <option value="category1">Categoría 1</option>
+                    <option value="category2">Categoría 2</option>
+                </select>
+                <br><br>
+                <label for="price">Precio:</label>
+                <input type="range" id="price" name="price" min="0" max="100">
+                <br><br>
+                <button onclick="applyFilters()">Aplicar Filtros</button>
+            </div>
         </div>
     </main>
     <footer class="footer">
