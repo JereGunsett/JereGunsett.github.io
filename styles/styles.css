@@ -83,6 +83,80 @@ footer{
   border-top: 0.1px solid var(--very-light-grey);
 }
 /* INDEX */
+/* Prueba Cards */
+* {
+  margin: 0;
+  padding: 0;
+}
+.title-context {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.16667;
+  margin: 4rem 0 0 1.5rem;
+}
+.title-context span {
+  color: #6e6e73;
+}
+.container {
+  display: flex;
+  overflow-x: auto; /* Creamos un div scrollable de forma horizontal */
+  scrollbar-width: none; /* Escondemos la scrollbar en Firefox */
+  padding: 1.5rem 0; 
+}
+.grid::-webkit-scrollbar {
+  display: none; /* Escondemos la scrollbar en Chrome, Safari y Edge */
+}
+.card {
+  position: relative; /* Esta posición para poder posicionar el texto de la clase "body" */
+  flex: 0 0 309px; /* flex grow 0 para que todas ocupen el mismo espacio, flex-shrink 0 para que no se encojan y flex-basis 309px de ancho. */
+  height: 450px;
+  overflow: hidden; /* Para poder ver el borde redondeado */
+  margin-left: 1.5rem;
+  border-radius: 18px;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease; /* Añade una transición suave para todos los cambios */
+}
+.image {
+  width: 100%;
+  transition: all 0.3s ease;
+  filter: grayscale(100%);
+}
+.card:hover .image {
+  filter: grayscale(100%); /* Hace que la imagen se vea en escala de grises al pasar el mouse */
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño de la imagen al pasar el mouse */
+  filter: grayscale(0%);
+}
+.body {
+  position: absolute;
+  top: 0;
+  padding: 28px;
+  font-weight: 600;
+  text-align: center;
+}
+.titulo-categoria {
+  font-size: 30px; /* Aumenta el tamaño del título de la categoría */
+  font-weight: 700; /* Ajusta el grosor del título de la categoría */
+  text-align: center; /* Centra el título de la categoría */
+  margin: 20px 0; /* Ajusta el margen del título de la categoría */
+  color: #333; /* Cambia el color del título para hacerlo más visible */
+}
+.text {
+  font-size: 17px; /* Ajusta el tamaño del texto de la descripción */
+  font-weight: 300; /* Ajusta el grosor del texto de la descripción */
+  text-align: center; /* Centra el texto de la descripción */
+}
+.black-text {
+  color: black;
+}
+.white-text {
+  color: white;
+}
+
+/* Nosotros */
 .about-section {
   padding: 50px 0;
   text-align: center;
