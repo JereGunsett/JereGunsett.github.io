@@ -4,6 +4,7 @@
   --very-light-grey: #bebebe;
   --very-light-pink: #a5a5a5;
   --lavanda: #bca3cc;
+  --ligth-lavanda: #efd4ff;
   --sm: 14px;
   --md: 16px;
   --lg: 18px;
@@ -77,6 +78,11 @@ footer{
   color: var(--lavanda);
 }
 
+/* FOOTER */
+.footer {
+  border-top: 0.1px solid var(--very-light-grey);
+}
+
 /* Carrusel */
 .carousel-control-prev,
 .carousel-control-next {
@@ -84,16 +90,15 @@ footer{
   color: var(--black) !important; /* Cambia "yourTextColor" al color del texto que prefieras */
   opacity: 0.1; /* Ajusta la opacidad según tus preferencias */
 }
-
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
-  background-color: var(--very-light-grey);
+  background-color: var(--ligth-lavanda);
   opacity: 0.01;
 }
 /* TITULOS */
 .h1{
   text-align: center;
-  padding-top: 80px;
+  padding-top: 60px;
   padding-bottom: 70px;
   font-weight: bold;
 }
@@ -129,10 +134,9 @@ h1, h2 {
   margin: 10px 0;
 }
 
-
 /* CONTACTO */
 .titulo-contacto{
-  padding-top: 50px;
+  padding-top: 20px;
 }
 .fromulario {
   max-width: 400px;
@@ -392,6 +396,7 @@ aside {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 20px;
+  margin-bottom: 40px;
   padding: 20px;
   margin-bottom: 20px;
   align-items: center;
