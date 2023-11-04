@@ -83,79 +83,39 @@ footer{
   border-top: 0.1px solid var(--very-light-grey);
 }
 /* INDEX */
-/* Prueba Cards */
-* {
-  margin: 0;
-  padding: 0;
+/* Cards Carrusel */
+.position {
+  padding-top: 40px;
 }
-.title-context {
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1.16667;
-  margin: 4rem 0 0 1.5rem;
+.slick-slide {
+  width: 100px;
+  height: 300px;
 }
-.title-context span {
-  color: #6e6e73;
-}
-.container {
-  display: flex;
-  overflow-x: auto; /* Creamos un div scrollable de forma horizontal */
-  scrollbar-width: none; /* Escondemos la scrollbar en Firefox */
-  padding: 1.5rem 0; 
-}
-.grid::-webkit-scrollbar {
-  display: none; /* Escondemos la scrollbar en Chrome, Safari y Edge */
-}
-.card {
-  position: relative; /* Esta posición para poder posicionar el texto de la clase "body" */
-  flex: 0 0 309px; /* flex grow 0 para que todas ocupen el mismo espacio, flex-shrink 0 para que no se encojan y flex-basis 309px de ancho. */
-  height: 450px;
-  overflow: hidden; /* Para poder ver el borde redondeado */
-  margin-left: 1.5rem;
-  border-radius: 18px;
-  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease; /* Añade una transición suave para todos los cambios */
-}
-.image {
+
+.slick-slide img {
   width: 100%;
-  transition: all 0.3s ease;
-  filter: grayscale(100%);
+  object-fit: contain;
+  margin: 0 auto;
+  padding: 10px;
 }
-.card:hover .image {
-  filter: grayscale(100%); /* Hace que la imagen se vea en escala de grises al pasar el mouse */
-  transform: scale(1.1); /* Aumenta ligeramente el tamaño de la imagen al pasar el mouse */
-  filter: grayscale(0%);
+
+.slick-slide .body {
+  background-color: rgba(255, 255, 255, 0.7); /* Ajustar la opacidad del fondo */
+  padding: 10px; /* Ajustar el espacio dentro de la tarjeta */
 }
-.body {
+
+.slick-prev, .slick-next {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 28px;
-  font-weight: 600;
-  text-align: center;
-  white-space: normal;
+  z-index: 1;
 }
-.titulo-categoria {
-  font-size: 40px; /* Aumenta el tamaño del título de la categoría */
-  font-weight: 800; /* Ajusta el grosor del título de la categoría */
-  text-align: center; /* Centra el título de la categoría */
-  margin: auto; /* Ajusta el margen del título de la categoría */
-  color: #292929; /* Cambia el color del título para hacerlo más visible */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+.slick-prev {
+  left: 0;
 }
-.text {
-  font-size: 20px; /* Ajusta el tamaño del texto de la descripción */
-  font-weight: 500; /* Ajusta el grosor del texto de la descripción */
-  text-align: center; /* Centra el texto de la descripción */
-  color: #292929;
-  display: none;
+
+.slick-next {
+  right: 0;
 }
 
 /* Nosotros */
@@ -182,9 +142,8 @@ footer{
 /* Carrusel */
 .carousel-control-prev,
 .carousel-control-next {
-  /* background-color: var(--black) !important; */
-  color: var(--black) !important; /* Cambia "yourTextColor" al color del texto que prefieras */
-  opacity: 0.1; /* Ajusta la opacidad según tus preferencias */
+  color: var(--black) !important; 
+  opacity: 0.1; 
 }
 .carousel-control-prev:hover,
 .carousel-control-next:hover {

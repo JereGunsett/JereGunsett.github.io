@@ -15,6 +15,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 </head>
 <body>
     <header class="header">
@@ -85,29 +86,14 @@
         <div class="position">
             <h2 style="padding-top: 40px;">Nuestras Categorias</h2>
             <div class="container">
-                <article class="card">
-                    <img src="media/category/Almohada.png" class="image" />
-                    <section class="body">
-                        <h3 class="titulo-categoria">Categoria 1</h3>
-                        <p class="text">descripcion de la categoria</p>
-                    </section>
-                </article>
-                <article class="card">
-                    <img src="media/category/Cortina.png" class="image" />
-                    <section class="body">
-                        <h3 class="titulo-categoria">Categoria 2</h3>
-                        <p class="text">descripcion de la categoria</p>
-                    </section>
-                </article>
-                <article class="card">
-                    <img src="media/category/Plato.png" class="image" />
-                    <section class="body">
-                        <h3 class="titulo-categoria">Categoria 3</h3>
-                        <p class="text">descripcion de la categoria</p> 
-                    </section>
-                </article>
+                <div class="slick-carousel">
+                    <!-- Aquí se cargarán las categorías -->
+                </div>
             </div>
         </div>
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <section class="about-section">
             <div class="about-content">
                 <h2>Sobre Nosotros</h2>
