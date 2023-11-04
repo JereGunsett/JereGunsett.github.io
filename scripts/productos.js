@@ -122,7 +122,7 @@ function renderizacionDetalleProducto (producto){
 
 //Renderizado de los productos del Ecommerce
 function renderizacionProductosEcommerce (arr){
-    let count = 0;
+    
     for (const producto of arr) {
         
         const productoCard = document.createElement('div');
@@ -130,7 +130,7 @@ function renderizacionProductosEcommerce (arr){
     
         const productoImg = document.createElement('img');
         productoImg.setAttribute('src', producto.imagen);
-        productoImg.setAttribute('alt', count);
+        productoImg.setAttribute('alt', producto);
         productoImg.addEventListener('click', function() {
             const alt = productoImg.getAttribute('alt');
             const producto = arr[alt];
@@ -157,69 +157,74 @@ function renderizacionProductosEcommerce (arr){
     
         contenedorProductoEcommerce.appendChild(productoCard);
 
-        count++;
     }
 }
 
+let isModalRendered = false;
+
 function renderizacionFiltradoProducto(){
-    const modalContent = document.createElement('div');
-    modalContent.classList.add('modal-content');
+    if (!isModalRendered){
+        const modalContent = document.createElement('div');
+        modalContent.classList.add('modal-content');
 
-    const closeButton = document.createElement('button');
-    closeButton.classList.add('close-button');
-    closeButton.addEventListener('click', function(){
-        filtroModal.classList.add('inactive');
-        iconoFiltroDeProductos.classList.remove('inactive');
-    })
+        const closeButton = document.createElement('button');
+        closeButton.classList.add('close-button');
+        closeButton.addEventListener('click', function(){
+            filtroModal.classList.add('inactive');
+            iconoFiltroDeProductos.classList.remove('inactive');
+        })
 
-    const span = document.createElement('span');
-    span.innerHTML = "&times;";
-    closeButton.appendChild(span);
+        const span = document.createElement('span');
+        span.innerHTML = "&times;";
+        closeButton.appendChild(span);
 
-    const h2 = document.createElement('h2');
-    h2.innerText = 'Filtrar Productos';
+        const h2 = document.createElement('h2');
+        h2.innerText = 'Filtrar Productos';
 
-    const label = document.createElement('label');
-    label.setAttribute('for', 'productName');
-    label.innerText = 'Nombre del producto';
+        const label = document.createElement('label');
+        label.setAttribute('for', 'productName');
+        label.innerText = 'Nombre del producto';
 
-    const inputProductName = document.createElement('input');
-    inputProductName.setAttribute('type', 'text');
-    inputProductName.setAttribute('id', 'productName');
-    inputProductName.setAttribute('name', 'productName');
+        const inputProductName = document.createElement('input');
+        inputProductName.setAttribute('type', 'text');
+        inputProductName.setAttribute('id', 'productName');
+        inputProductName.setAttribute('name', 'productName');
 
-    const label2 = document.createElement('label');
-    label2.setAttribute('for', 'category');
-    label2.innerText = 'Categoría:';
+        const label2 = document.createElement('label');
+        label2.setAttribute('for', 'category');
+        label2.innerText = 'Categoría:';
 
-    const selectCategory = document.createElement('select');
-    selectCategory.setAttribute('id', 'category');
-    selectCategory.setAttribute('name', 'category');
-    for (const categoria in categorias) {
-        const option = document.createElement('option');
-        option.setAttribute('value', categoria);
-        option.innerText = categorias[categoria];
-        selectCategory.appendChild(option);
+        const selectCategory = document.createElement('select');
+        selectCategory.setAttribute('id', 'category');
+        selectCategory.setAttribute('name', 'category');
+        for (const categoria in categorias) {
+            const option = document.createElement('option');
+            option.setAttribute('value', categoria);
+            option.innerText = categorias[categoria];
+            selectCategory.appendChild(option);
+        }
+                
+        const label3 = document.createElement('label');
+        label3.setAttribute('for', 'price');
+        label3.innerText = 'Precio:';
+
+        const inputPrice = document.createElement('input');
+        inputPrice.setAttribute('type', 'range');
+        inputPrice.setAttribute('id', 'price');
+        inputPrice.setAttribute('name', 'price');
+        inputPrice.setAttribute('min', Math.min(...precios));
+        inputPrice.setAttribute('max', Math.max(...precios));
+
+        const buttonApplyFilter = document.createElement('button');
+        buttonApplyFilter.setAttribute('onclick', 'applyFilters()');
+        buttonApplyFilter.innerText = 'Aplicar Filtros';
+        
+        modalContent.append(closeButton, h2, label, inputProductName, label2, selectCategory, label3, inputPrice, buttonApplyFilter);
+        filtroModal.appendChild(modalContent);
+
+        isModalRendered = true;
+
     }
-    // selectCategory.innerHTML = `<option value="category1">Categoría 1</option>
-    //                             <option value="category2">Categoría 2</option>`;             
-    const label3 = document.createElement('label');
-    label3.setAttribute('for', 'price');
-    label3.innerText = 'Precio:';
-
-    const inputPrice = document.createElement('input');
-    inputPrice.setAttribute('type', 'range');
-    inputPrice.setAttribute('id', 'price');
-    inputPrice.setAttribute('name', 'price');
-    inputPrice.setAttribute('min', Math.min(...precios));
-    inputPrice.setAttribute('max', Math.max(...precios));
-
-    const buttonApplyFilter = document.createElement('button');
-    buttonApplyFilter.setAttribute('onclick', 'applyFilters()');
-    buttonApplyFilter.innerText = 'Aplicar Filtros';
-    
-    modalContent.append(closeButton, h2, label, inputProductName, label2, selectCategory, label3, inputPrice, buttonApplyFilter);
-    filtroModal.appendChild(modalContent);
 }
 
 obtenerProductosDelServidor();

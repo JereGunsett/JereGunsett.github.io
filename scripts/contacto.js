@@ -2,6 +2,8 @@ const sumbitButtonContacto = document.querySelector('#sumbit-contacto');
 
 sumbitButtonContacto.addEventListener('click', enviarDatosDeContacto);
 
+const BASE_URL = 'http://localhost:5009';
+
 function enviarDatosDeContacto(event) {
     event.preventDefault();
 
@@ -15,7 +17,7 @@ function enviarDatosDeContacto(event) {
         descripcion: descripcionContacto
     };
 
-    fetch('/contacto', {
+    fetch(`${BASE_URL}/Contacto`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -25,7 +27,14 @@ function enviarDatosDeContacto(event) {
     .then(response => response.text())
     .then(data => {
         console.log(data);
-        
+        console.log(data);
+        // Limpiar los campos del formulario
+        nombreContacto.value = '';
+        emailContacto.value = '';
+        descripcionContacto.value = '';
+        // Recargar la página
+        location.reload();
+        alert('La información fue enviada con exito')
     })
     .catch(error => {
         console.error('Error:', error);
