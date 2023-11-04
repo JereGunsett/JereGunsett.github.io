@@ -27,7 +27,8 @@ function cerrarDetalleProducto(){
     detalleProducto.classList.add('inactive');
 }
 
-function abrirFiltroDeProductos(){
+async function abrirFiltroDeProductos(){
+    await obtenerCategoriasDelServidor();
     renderizacionFiltradoProducto(); //Renderiza el modal de filtrado
     filtroModal.classList.remove('inactive');
     iconoFiltroDeProductos.classList.add('inactive');
@@ -46,6 +47,21 @@ async function obtenerProductosDelServidor() {
         renderizacionProductosEcommerce(data); // Renderiza los productos recibidos desde el servidor
     } catch (error) {
         console.error('Error al obtener los productos: ', error);
+    }
+}
+
+let categorias;
+//Funcion para obtener las categorias de los productos desde el servidor
+async function obtenerCategoriasDelServidor() {
+    try {
+        const response = await fetch(`${BASE_URL}/Categoria`);
+        if (!response.ok) {
+            throw new Error('Ocurrió un problema al obtener las categorias');
+        }
+        const data = await response.json();
+        categorias = data.map((categorias) => categorias.nombre) // Renderiza las categorias recibidas desde el servidor
+    } catch (error) {
+        console.error('Error al obtener las categorias: ', error);
     }
 }
 
@@ -179,8 +195,14 @@ function renderizacionFiltradoProducto(){
     const selectCategory = document.createElement('select');
     selectCategory.setAttribute('id', 'category');
     selectCategory.setAttribute('name', 'category');
-    selectCategory.innerHTML = `<option value="category1">Categoría 1</option>
-                                <option value="category2">Categoría 2</option>`;             
+    for (const categoria in categorias) {
+        const option = document.createElement('option');
+        option.setAttribute('value', categoria);
+        option.innerText = categorias[categoria];
+        selectCategory.appendChild(option);
+    }
+    // selectCategory.innerHTML = `<option value="category1">Categoría 1</option>
+    //                             <option value="category2">Categoría 2</option>`;             
     const label3 = document.createElement('label');
     label3.setAttribute('for', 'price');
     label3.innerText = 'Precio:';

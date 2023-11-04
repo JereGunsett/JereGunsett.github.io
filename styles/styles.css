@@ -557,7 +557,7 @@ aside {
   }
 
   .contenedor-ecommerce {
-    grid-template-columns: repeat(auto-fill, 140px);
+    grid-template-columns: repeat(auto-fill, 160px);
   }
   .contenedor-productos {
     flex-direction: column;
