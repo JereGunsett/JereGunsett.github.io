@@ -15,7 +15,7 @@ function enviarDatosDeContacto(event) {
         descripcion: descripcionContacto
     };
 
-    fetch('/contact', {
+    fetch('/contacto', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

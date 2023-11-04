@@ -4,13 +4,17 @@ const detalleProducto = document.querySelector('#detalle-producto');
 const iconoCierreDetalleProducto = document.querySelector('.producto-detalle-cierre');
 const iconoFiltroDeProductos = document.querySelector('.filtro-button');
 const filtroModal = document.querySelector('.filtro-modal');
-const botonDeCierreFiltro = document.querySelector('.close-button');
+
+
+
+//URL base del servidor local
+const BASE_URL = 'http://localhost:5009';
 
 
 iconoCierreDetalleProducto.addEventListener('click', cerrarDetalleProducto);
 
 iconoFiltroDeProductos.addEventListener('click', abrirFiltroDeProductos);
-botonDeCierreFiltro.addEventListener('click', cerrarFiltroDeProductos);
+
 
 // Abrir el detalle del producto al hacer click en la imagen de este
 function abrirDetalleProducto(producto) {
@@ -20,82 +24,30 @@ function abrirDetalleProducto(producto) {
 
 // Cerrar el detalle del producto al hacer click en .producto-detalle-cierre
 function cerrarDetalleProducto(){
-
     detalleProducto.classList.add('inactive');
 }
 
 function abrirFiltroDeProductos(){
+    renderizacionFiltradoProducto(); //Renderiza el modal de filtrado
     filtroModal.classList.remove('inactive');
     iconoFiltroDeProductos.classList.add('inactive');
 }
-function cerrarFiltroDeProductos(){
-    filtroModal.classList.add('inactive');
-    iconoFiltroDeProductos.classList.remove('inactive');
+
+let precios;
+// Función para obtener todos los productos desde el servidor
+async function obtenerProductosDelServidor() {
+    try {
+        const response = await fetch(`${BASE_URL}/Producto`);
+        if (!response.ok) {
+            throw new Error('Ocurrió un problema al obtener los productos');
+        }
+        const data = await response.json();
+        precios = data.map((producto) => producto.precio);
+        renderizacionProductosEcommerce(data); // Renderiza los productos recibidos desde el servidor
+    } catch (error) {
+        console.error('Error al obtener los productos: ', error);
+    }
 }
-
-const productoList = [];
-
-const categoriaEjemplo = new Categoria({
-    id: 1,
-    nombre: 'Categoria de Ejemplo',
-    descripcion: 'Esta es una categoria usada para el testeo'
-});
-const categoriaEjemplo2 = new Categoria({
-    id: 2,
-    nombre: 'Categoria de Ejemplo 2',
-    descripcion: 'Esta es una categoria usada para el testeo'
-});
-
-const productoEjemplo = new Producto({
-    id: 1,
-    nombre: "Producto de Ejemplo 1",
-    precio: 5000,
-    imagen: "../media/shop/podio.avif",
-    descripcion: "Este es un producto de ejemplo",
-    categoria: categoriaEjemplo2
-});
-const productoEjemplo1 = new Producto({
-    id: 1,
-    nombre: "Producto de Ejemplo 2",
-    precio: 3000,
-    imagen: "../media/shop/podio.avif",
-    descripcion: "Este es un producto de ejemplo",
-    categoria: categoriaEjemplo2
-});
-const productoEjemplo2 = new Producto({
-    id: 1,
-    nombre: "Producto de Ejemplo 3",
-    precio: 2500,
-    imagen: "../media/shop/podio.avif",
-    descripcion: "Este es un producto de ejemplo",
-    categoria: categoriaEjemplo
-});
-const productoEjemplo3 = new Producto({
-    id: 1,
-    nombre: "Producto de Ejemplo 4",
-    precio: 5000,
-    imagen: "../media/shop/podio.avif",
-    descripcion: "Este es un producto de ejemplo",
-    categoria: categoriaEjemplo
-});
-const productoEjemplo4 = new Producto({
-    id: 1,
-    nombre: "Producto de Ejemplo 5",
-    precio: 8000,
-    imagen: "../media/shop/podio.avif",
-    descripcion: "Este es un producto de ejemplo",
-    categoria: categoriaEjemplo
-});
-const productoEjemplo5 = new Producto({
-    id: 1,
-    nombre: "Producto de Ejemplo 5",
-    precio: 8000,
-    imagen: "../media/shop/podio.avif",
-    descripcion: "Este es un producto de ejemplo",
-    categoria: categoriaEjemplo
-});
-
-productoList.push(productoEjemplo1,productoEjemplo2,productoEjemplo3,productoEjemplo4,productoEjemplo5,productoEjemplo);
 
 //Renderizado del detalle de cada prodcuto
 function renderizacionDetalleProducto (producto){
@@ -155,7 +107,7 @@ function renderizacionDetalleProducto (producto){
 //Renderizado de los productos del Ecommerce
 function renderizacionProductosEcommerce (arr){
     let count = 0;
-    for (const producto of productoList) {
+    for (const producto of arr) {
         
         const productoCard = document.createElement('div');
         productoCard.classList.add('producto-card');
@@ -165,7 +117,7 @@ function renderizacionProductosEcommerce (arr){
         productoImg.setAttribute('alt', count);
         productoImg.addEventListener('click', function() {
             const alt = productoImg.getAttribute('alt');
-            const producto = productoList[alt];
+            const producto = arr[alt];
             abrirDetalleProducto(producto);
         });
     
@@ -193,4 +145,59 @@ function renderizacionProductosEcommerce (arr){
     }
 }
 
-renderizacionProductosEcommerce(productoList);
+function renderizacionFiltradoProducto(){
+    const modalContent = document.createElement('div');
+    modalContent.classList.add('modal-content');
+
+    const closeButton = document.createElement('button');
+    closeButton.classList.add('close-button');
+    closeButton.addEventListener('click', function(){
+        filtroModal.classList.add('inactive');
+        iconoFiltroDeProductos.classList.remove('inactive');
+    })
+
+    const span = document.createElement('span');
+    span.innerHTML = "&times;";
+    closeButton.appendChild(span);
+
+    const h2 = document.createElement('h2');
+    h2.innerText = 'Filtrar Productos';
+
+    const label = document.createElement('label');
+    label.setAttribute('for', 'productName');
+    label.innerText = 'Nombre del producto';
+
+    const inputProductName = document.createElement('input');
+    inputProductName.setAttribute('type', 'text');
+    inputProductName.setAttribute('id', 'productName');
+    inputProductName.setAttribute('name', 'productName');
+
+    const label2 = document.createElement('label');
+    label2.setAttribute('for', 'category');
+    label2.innerText = 'Categoría:';
+
+    const selectCategory = document.createElement('select');
+    selectCategory.setAttribute('id', 'category');
+    selectCategory.setAttribute('name', 'category');
+    selectCategory.innerHTML = `<option value="category1">Categoría 1</option>
+                                <option value="category2">Categoría 2</option>`;             
+    const label3 = document.createElement('label');
+    label3.setAttribute('for', 'price');
+    label3.innerText = 'Precio:';
+
+    const inputPrice = document.createElement('input');
+    inputPrice.setAttribute('type', 'range');
+    inputPrice.setAttribute('id', 'price');
+    inputPrice.setAttribute('name', 'price');
+    inputPrice.setAttribute('min', Math.min(...precios));
+    inputPrice.setAttribute('max', Math.max(...precios));
+
+    const buttonApplyFilter = document.createElement('button');
+    buttonApplyFilter.setAttribute('onclick', 'applyFilters()');
+    buttonApplyFilter.innerText = 'Aplicar Filtros';
+    
+    modalContent.append(closeButton, h2, label, inputProductName, label2, selectCategory, label3, inputPrice, buttonApplyFilter);
+    filtroModal.appendChild(modalContent);
+}
+
+obtenerProductosDelServidor();
