@@ -380,6 +380,20 @@ aside {
   width: 300px;
 }
 
+#cargar-mas {
+  background-color: #fff; /* Fondo blanco */
+  border: 1px solid #ccc; /* Borde delgado gris */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transición suave en el cambio de color de fondo */
+  border-radius: 30px;
+}
+
+#cargar-mas:hover {
+  background-color: #ddd; /* Cambio de color al pasar el mouse */
+}
+
 /* Filtro Modal */
 .filtro-modal {
   position: fixed; 
