@@ -8,6 +8,9 @@ const BASE_URL = 'http://localhost:5009';
 let precios;
 let categorias;
 let isModalRendered = false;
+const PAGE_SIZE = 4;
+let page = 1;
+let totalCount = 0;
 
 iconoCierreDetalleProducto.addEventListener('click', cerrarDetalleProducto);
 iconoFiltroDeProductos.addEventListener('click', abrirFiltroDeProductos);
@@ -19,9 +22,10 @@ function abrirDetalleProducto(producto) {
 }
 
 
-async function obtenerProductosDelServidor() {
+async function obtenerProductosDelServidor(page = 1,pageSize = PAGE_SIZE, type = '0', query, orderBy) {
     try {
-        const response = await fetch(`${BASE_URL}/Producto`);
+        const response = await fetch(`${BASE_URL}/Producto/type/${type}?page=${page}&pageSize=${pageSize}&query=${query}&orderBy=${orderBy}`);
+        console.log('URL de la llamada a la API: ' + response.url);
         if (!response.ok) {
             throw new Error('Ocurrió un problema al obtener los productos');
         }
@@ -29,6 +33,7 @@ async function obtenerProductosDelServidor() {
         const data = await response.json();
         console.log('Respuesta del servidor:', data);
         console.log('Productos cargados correctamente:', data.list);
+        totalCount = data.totalCount;
         precios = data.list.map((producto) => producto.precio);
         renderizacionProductosEcommerce(data.list);
     } catch (error) {
@@ -117,6 +122,8 @@ function renderizacionProductosEcommerce(arr) {
         return;
     }
 
+    contenedorProductoEcommerce.innerHTML = '';
+
     for (const producto of arr) {
         const productoCard = document.createElement('div');
         productoCard.classList.add('producto-card');
@@ -145,7 +152,13 @@ function renderizacionProductosEcommerce(arr) {
         productoInfo.append(productoInfoDiv);
         productoCard.append(productoImg, productoInfo);
         contenedorProductoEcommerce.appendChild(productoCard);
+
     }
+    // Paginación
+    const totalPages = Math.ceil(totalCount / PAGE_SIZE);
+    const paginationInfo = document.createElement('p');
+    paginationInfo.innerText = `Página ${page} de ${totalPages}`;
+    contenedorProductoEcommerce.appendChild(paginationInfo);
 }
 
 function renderizacionFiltradoProducto() {
@@ -212,4 +225,34 @@ function renderizacionFiltradoProducto() {
     }
 }
 
-obtenerProductosDelServidor();
+// Botones de paginación
+const paginationButtonsContainer = document.createElement('div');
+
+const prevPageButton = document.createElement('button');
+prevPageButton.innerText = 'Anterior';
+prevPageButton.addEventListener('click', () => {
+    if (page > 1) {
+        page--;
+        obtenerProductosDelServidor();
+    }
+});
+paginationButtonsContainer.appendChild(prevPageButton);
+
+const nextPageButton = document.createElement('button');
+nextPageButton.innerText = 'Siguiente';
+nextPageButton.addEventListener('click', () => {
+    const lastPage = Math.ceil(totalCount / PAGE_SIZE);
+    if (page < lastPage) {
+        page++;
+        obtenerProductosDelServidor();
+    }
+});
+paginationButtonsContainer.appendChild(nextPageButton);
+
+contenedorProductoEcommerce.appendChild(paginationButtonsContainer);
+
+console.log('Creando botones de paginación. Página actual:', page, 'Total de páginas:', Math.ceil(totalCount / PAGE_SIZE))
+console.log('Total de productos:', totalCount);
+console.log('Tamaño de página:', PAGE_SIZE);
+
+obtenerProductosDelServidor(1,PAGE_SIZE, '0', "", "Id");
