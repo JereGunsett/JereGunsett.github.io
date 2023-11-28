@@ -10,7 +10,7 @@ let categorias;
 let isModalRendered = false;
 const PAGE_SIZE = 4;
 let page = 1;
-let totalCount = 0;
+let totalCount = 1;
 
 iconoCierreDetalleProducto.addEventListener('click', cerrarDetalleProducto);
 iconoFiltroDeProductos.addEventListener('click', abrirFiltroDeProductos);
@@ -22,7 +22,7 @@ function abrirDetalleProducto(producto) {
 }
 
 
-async function obtenerProductosDelServidor(page = 1,pageSize = PAGE_SIZE, type = '0', query, orderBy) {
+async function obtenerProductosDelServidor(page = 1,pageSize = PAGE_SIZE, type = '0', query = '', orderBy = 'Id') {
     try {
         const response = await fetch(`${BASE_URL}/Producto/type/${type}?page=${page}&pageSize=${pageSize}&query=${query}&orderBy=${orderBy}`);
         console.log('URL de la llamada a la API: ' + response.url);
@@ -40,6 +40,33 @@ async function obtenerProductosDelServidor(page = 1,pageSize = PAGE_SIZE, type =
         console.error('Error al obtener los productos: ', error);
     }
 }
+
+// Botones de paginación
+const paginationButtonsContainer = document.createElement('div');
+
+const prevPageButton = document.createElement('button');
+prevPageButton.innerText = 'Anterior';
+prevPageButton.addEventListener('click', () => {
+    if (page > 1) {
+        page--;
+        obtenerProductosDelServidor();
+        console.log('Pagina: ' + page)
+    }
+});
+
+paginationButtonsContainer.appendChild(prevPageButton);
+
+const nextPageButton = document.createElement('button');
+nextPageButton.innerText = 'Siguiente';
+nextPageButton.addEventListener('click', () => {
+    const lastPage = Math.ceil(totalCount / PAGE_SIZE);
+    if (page < lastPage) {
+        page++;
+        obtenerProductosDelServidor();
+        console.log('Pagina: ' + page)
+    }
+});
+paginationButtonsContainer.appendChild(nextPageButton);
 
 async function obtenerCategoriasDelServidor() {
     try {
@@ -159,6 +186,8 @@ function renderizacionProductosEcommerce(arr) {
     const paginationInfo = document.createElement('p');
     paginationInfo.innerText = `Página ${page} de ${totalPages}`;
     contenedorProductoEcommerce.appendChild(paginationInfo);
+
+    contenedorProductoEcommerce.appendChild(paginationButtonsContainer);
 }
 
 function renderizacionFiltradoProducto() {
@@ -224,32 +253,6 @@ function renderizacionFiltradoProducto() {
         isModalRendered = true;
     }
 }
-
-// Botones de paginación
-const paginationButtonsContainer = document.createElement('div');
-
-const prevPageButton = document.createElement('button');
-prevPageButton.innerText = 'Anterior';
-prevPageButton.addEventListener('click', () => {
-    if (page > 1) {
-        page--;
-        obtenerProductosDelServidor();
-    }
-});
-paginationButtonsContainer.appendChild(prevPageButton);
-
-const nextPageButton = document.createElement('button');
-nextPageButton.innerText = 'Siguiente';
-nextPageButton.addEventListener('click', () => {
-    const lastPage = Math.ceil(totalCount / PAGE_SIZE);
-    if (page < lastPage) {
-        page++;
-        obtenerProductosDelServidor();
-    }
-});
-paginationButtonsContainer.appendChild(nextPageButton);
-
-contenedorProductoEcommerce.appendChild(paginationButtonsContainer);
 
 console.log('Creando botones de paginación. Página actual:', page, 'Total de páginas:', Math.ceil(totalCount / PAGE_SIZE))
 console.log('Total de productos:', totalCount);
