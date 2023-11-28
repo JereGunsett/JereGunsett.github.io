@@ -3,7 +3,9 @@ const detalleProducto = document.querySelector('#detalle-producto');
 const iconoCierreDetalleProducto = document.querySelector('.producto-detalle-cierre');
 const iconoFiltroDeProductos = document.querySelector('.filtro-button');
 const filtroModal = document.querySelector('.filtro-modal');
+const paginationContainer = document.querySelector('.pagination-container');
 const BASE_URL = 'http://localhost:5009';
+
 
 let precios;
 let categorias;
@@ -22,10 +24,11 @@ function abrirDetalleProducto(producto) {
 }
 
 
-async function obtenerProductosDelServidor(page = 1,pageSize = PAGE_SIZE, type = '0', query = '', orderBy = 'Id') {
+async function obtenerProductosDelServidor(page = 1, pageSize = PAGE_SIZE, type = '0', query = '', orderBy = 'Id') {
     try {
         const response = await fetch(`${BASE_URL}/Producto/type/${type}?page=${page}&pageSize=${pageSize}&query=${query}&orderBy=${orderBy}`);
         console.log('URL de la llamada a la API: ' + response.url);
+        console.log('Valores de paginación:', { page, pageSize });
         if (!response.ok) {
             throw new Error('Ocurrió un problema al obtener los productos');
         }
@@ -43,13 +46,15 @@ async function obtenerProductosDelServidor(page = 1,pageSize = PAGE_SIZE, type =
 
 // Botones de paginación
 const paginationButtonsContainer = document.createElement('div');
+paginationButtonsContainer.classList.add('pagination_container');
 
 const prevPageButton = document.createElement('button');
+prevPageButton.classList.add('button_page');
 prevPageButton.innerText = 'Anterior';
 prevPageButton.addEventListener('click', () => {
     if (page > 1) {
         page--;
-        obtenerProductosDelServidor();
+        obtenerProductosDelServidor(page);
         console.log('Pagina: ' + page)
     }
 });
@@ -57,12 +62,13 @@ prevPageButton.addEventListener('click', () => {
 paginationButtonsContainer.appendChild(prevPageButton);
 
 const nextPageButton = document.createElement('button');
+nextPageButton.classList.add('button_page');
 nextPageButton.innerText = 'Siguiente';
 nextPageButton.addEventListener('click', () => {
     const lastPage = Math.ceil(totalCount / PAGE_SIZE);
     if (page < lastPage) {
         page++;
-        obtenerProductosDelServidor();
+        obtenerProductosDelServidor(page);
         console.log('Pagina: ' + page)
     }
 });
@@ -183,11 +189,16 @@ function renderizacionProductosEcommerce(arr) {
     }
     // Paginación
     const totalPages = Math.ceil(totalCount / PAGE_SIZE);
-    const paginationInfo = document.createElement('p');
-    paginationInfo.innerText = `Página ${page} de ${totalPages}`;
-    contenedorProductoEcommerce.appendChild(paginationInfo);
 
-    contenedorProductoEcommerce.appendChild(paginationButtonsContainer);
+    // Elimina la información de paginación anterior
+    paginationContainer.innerHTML = '';
+    
+    const paginationInfo = document.createElement('p');
+    paginationInfo.classList.add('pagination_info');
+    paginationInfo.innerText = `Página ${page} de ${totalPages}`;
+    paginationContainer.appendChild(paginationInfo);
+
+    paginationContainer.appendChild(paginationButtonsContainer);
 }
 
 function renderizacionFiltradoProducto() {
@@ -258,4 +269,4 @@ console.log('Creando botones de paginación. Página actual:', page, 'Total de p
 console.log('Total de productos:', totalCount);
 console.log('Tamaño de página:', PAGE_SIZE);
 
-obtenerProductosDelServidor(1,PAGE_SIZE, '0', "", "Id");
+obtenerProductosDelServidor(1, PAGE_SIZE, '0', "", "Id");

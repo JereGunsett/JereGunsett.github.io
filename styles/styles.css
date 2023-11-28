@@ -380,7 +380,14 @@ aside {
   width: 300px;
 }
 
-#cargar-mas {
+.pagination-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.button_page {
   background-color: #fff; /* Fondo blanco */
   border: 1px solid #ccc; /* Borde delgado gris */
   padding: 10px 20px; /* Espaciado interno */
@@ -390,8 +397,21 @@ aside {
   border-radius: 30px;
 }
 
-#cargar-mas:hover {
-  background-color: #ddd; /* Cambio de color al pasar el mouse */
+.button_page:hover {
+  background-color: var(--lavanda); /* Cambio de color al pasar el mouse */
+}
+
+.pagination_info {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 20px;
+  padding-top: 30px;
+}
+
+/* Estilos para los productos */
+
+.producto-card:hover {
+  transform: scale(1.05);
 }
 
 /* Filtro Modal */
