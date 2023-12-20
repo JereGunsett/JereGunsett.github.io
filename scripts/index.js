@@ -12,10 +12,11 @@ function cargarCategorias() {
             data.forEach(categoria => {
                 slickCarousel.append(`
                     <div class="card">
-                        <img src="${categoria.imagen}" class="image" />
+                        <div class="image-container">
+                            <img src="media/category/${categoria.imagen}.png" class="image" />
+                        </div>
                         <section class="body">
                             <h3 class="titulo-categoria">${categoria.nombre}</h3>
-                            <p class="text">${categoria.descripcion}</p>
                         </section>
                     </div>
                 `);

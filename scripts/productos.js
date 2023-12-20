@@ -10,7 +10,7 @@ const BASE_URL = 'http://localhost:5009';
 let precios;
 let categorias;
 let isModalRendered = false;
-const PAGE_SIZE = 4;
+const PAGE_SIZE = 8;
 let page = 1;
 let totalCount = 1;
 
@@ -42,6 +42,17 @@ async function obtenerProductosDelServidor(page = 1, pageSize = PAGE_SIZE, type 
     } catch (error) {
         console.error('Error al obtener los productos: ', error);
     }
+}
+
+function enviarMensajeWhatsApp(producto) {
+    const mensaje = `¡Hola! Estoy interesado en el producto: ${producto.nombre}. ¿Puedes proporcionarme más información?`;
+    const numeroTelefono = '5493512884578';
+
+    // URL de WhatsApp con el número de teléfono y el mensaje codificado
+    const urlWhatsApp = `whatsapp://send?phone=${numeroTelefono}&text=${encodeURIComponent(mensaje)}`;
+
+    // Abrir la URL de WhatsApp
+    window.location.href = urlWhatsApp;
 }
 
 // Botones de paginación
@@ -138,15 +149,28 @@ function renderizacionDetalleProducto(producto) {
     displayProductoInfo.append(displayProductoPrecio, displayProductoNombre, displayProductoDescripcion);
     detalleProducto.appendChild(displayProductoInfo);
 
-    const displayBotonCarrito = document.createElement('button');
-    displayBotonCarrito.classList.add('boton-primario', 'agregar-al-carrito');
-    const displayImg = document.createElement('img');
-    displayImg.setAttribute('src', '../icons/bt_add_to_cart.svg');
-    displayImg.setAttribute('alt', 'agregar al carrito');
-    displayBotonCarrito.appendChild(displayImg);
-    displayBotonCarrito.appendChild(document.createTextNode('Agregar al carrito'));
+    const displayBotonWhatsApp = document.createElement('button');
+    displayBotonWhatsApp.classList.add('boton-whatsapp');
+    
+    const displayWhatsAppIcon = document.createElement('i');
+    displayWhatsAppIcon.classList.add('fab', 'fa-whatsapp', 'fa-2x');
+    displayWhatsAppIcon.style.marginRight = '10px';
+    
+    const displayWhatsAppText = document.createTextNode('Enviar a WhatsApp');
+    
+    // Agregar icono y texto al botón
+    displayBotonWhatsApp.appendChild(displayWhatsAppIcon);
+    displayBotonWhatsApp.appendChild(displayWhatsAppText);
+    
+    // Agregar evento clic para enviar el mensaje de WhatsApp
+    displayBotonWhatsApp.addEventListener('click', function() {
+        enviarMensajeWhatsApp(producto);
+    });
+    
+    // Agregar botón al elemento detalleProducto
+    detalleProducto.appendChild(displayBotonWhatsApp);
 
-    detalleProducto.appendChild(displayBotonCarrito);
+    detalleProducto.appendChild(displayBotonWhatsApp);
 }
 
 function renderizacionProductosEcommerce(arr) {
